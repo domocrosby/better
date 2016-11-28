@@ -1,0 +1,12 @@
+{
+  "name": "better",
+  "version": "0.0.0",
+  "description": "A tool for getting FAQs ",
+  "main": "server.js",
+  "repository": "",
+  "author": "Dominic Crosby <domcrosby1@gmail.com>",
+  "dependencies": {
+    "async": "~0.2.8",
+    "express": "~3.2.4"
+  }
+}
