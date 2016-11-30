@@ -4,6 +4,9 @@
   "description": "A tool for getting FAQs ",
   "main": "server.js",
   "repository": "",
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "Dominic Crosby <domcrosby1@gmail.com>",
   "dependencies": {
     "async": "~0.2.8",
