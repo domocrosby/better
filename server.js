@@ -3,7 +3,7 @@ var express = require('express')
 var app = express()
 
 // set pug as template engine
-app.set('view engine', 'pug')
+app.set('view engine', 'jade')
 app.set('views', './views')
 
 app.use(require('stylus').middleware(__dirname + '/public'));
