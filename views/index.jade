@@ -1,15 +1,6 @@
-doctype
-html( lang="en" )
-  head
-    title Better 
-    meta( charset='utf-8' )
-    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
-    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
-    meta( name='description', content='Better' )
-    //- Bootswatch Theme
-    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
-    link(rel="stylesheet" type="text/css" href="main.css")
-  body(style="padding-bottom:10rem;")
+extends layout
+
+block content
     .container
       .col-sm-12
         .input-group
@@ -17,7 +8,3 @@ html( lang="en" )
             .input-group-btn
                 button.btn.btn-default#submitBtn
                   i.glyphicon.glyphicon-search
-    //Calling Scripts
-    script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
-    script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
-    script( src="main.js")

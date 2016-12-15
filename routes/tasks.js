@@ -1,29 +1,27 @@
-var url = process.env.MONGODB_URI;
-var mongo = require('mongodb').MongoClient
+var express = require('express');
+var app = express()
 
-var obj = {
-  firstName : 'dom',
-  lastName : 'crosby'
-}
+// /* GET Userlist page. */
+app.get('/list', function(req, res) {
+    var db = req.db;
+    var collection = db.get('docs');
+    collection.find({},{},function(e,docs){
+        res.json(docs)
+    });
+});
 
-// mongo.connect(url, function(err, db) {
-//   if (err) throw err
-//   var collection = db.collection('docs');
-//   collection.insert(obj,function(err, documents) {
-//       if (err) throw err
-//       console.log(JSON.stringify(obj))
-//       db.close()
-//     })
-// })
+/*
+ * POST to adduser.
+ */
+// router.post('/adduser', function(req, res) {
+//     var db = req.db;
+//     var collection = db.get('userlist');
+//     collection.insert(req.body, function(err, result){
+//         res.send(
+//             (err === null) ? { msg: '' } : { msg: err }
+//         );
+//     });
+// });
 
-// mongo.connect(url, function(err, db) {
-//   if (err) throw err
-//   var collection = db.collection('docs');
-//   collection.find({
-//       firstName: 'dom'
-//     }).toArray(function(err, documents) {
-//       if (err) throw err
-//       console.log(documents)
-//       db.close()
-//     })
-// })
+
+module.exports = app;

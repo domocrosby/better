@@ -7,7 +7,6 @@ var mongo = require('mongodb')
 var monk = require('monk');
 var db = monk(process.env.MONGODB_URI);
 
-
 // set pug as template engine
 app.set('view engine', 'jade')
 app.set('views', './views')
