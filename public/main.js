@@ -1,8 +1,67 @@
 /*globals $:false */
 $("#submitBtn").on( "click", function(){
-        console.log($("#srch-term").val());
-    }
-);
+    submitSearch();
+});
+
+$("#submitBtn").on( 'keypress',function(e){
+     var p = e.which;
+     if(p==13){
+         submitSearch();
+     }
+});
+
+//On enter open answer box 
+$('#srch-term').on('keypress',function(e){
+     var p = e.which;
+     if(p==13){
+         submitSearch();
+     }
+ });
+
+function submitSearch(){
+    $('#answer').show();
+    $('#answer').select();
+}
+
+$("#answer").on( 'keypress',function(e){
+    var p = e.which;
+     if(p==13){
+         submitAnswer();
+     }
+});
+
+function submitAnswer(){
+    var newTask = {
+            'question': $('#srch-term').val(),
+            'answer': $('#answer').val()
+        };
+    console.log(newTask);
+     $.ajax({
+            type: 'POST',
+            data: newTask,
+            url: '/tasks/add',
+            dataType: 'JSON'
+        }).done(function( response ) {
+
+            // Check for successful (blank) response
+            if (response.msg === '') {
+
+                $('#srch-term').val('');
+                $('#answer').val('');
+                $('#answer').hide();
+                $('#srch-term').select();
+
+            }
+            else {
+                console.log(response)
+                // If something goes wrong, alert the error message that our service returned
+                alert('Error: ' + response.msg);
+
+            }
+        });   
+    
+
+}
 
 // Add User button click
 //     $('#btnAddUser').on('click', addUser);
@@ -12,63 +71,15 @@ $(document).ready(function() {
 
      // jQuery AJAX call for JSON
     $.getJSON( '/tasks/list', function( data ) {
-       console.log(data)
+        console.log(data)
+        var items = [];
+        $.each( data, function( key, val ) {
+            console.log(val)
+            $('#options').append( "<div class='option'>" + val.question + "</div>" );
+            console.log(items)
+        });
+     
     });
 
 });
 
-// // Add User
-// function addUser(event) {
-//     event.preventDefault();
-
-//     // Super basic validation - increase errorCount variable if any fields are blank
-//     var errorCount = 0;
-//     $('#addUser input').each(function(index, val) {
-//         if($(this).val() === '') { errorCount++; }
-//     });
-
-//     // Check and make sure errorCount's still at zero
-//     if(errorCount === 0) {
-
-//         // If it is, compile all user info into one object
-//         var newUser = {
-//             'username': $('#addUser fieldset input#inputUserName').val(),
-//             'email': $('#addUser fieldset input#inputUserEmail').val(),
-//             'fullname': $('#addUser fieldset input#inputUserFullname').val(),
-//             'age': $('#addUser fieldset input#inputUserAge').val(),
-//             'location': $('#addUser fieldset input#inputUserLocation').val(),
-//             'gender': $('#addUser fieldset input#inputUserGender').val()
-//         }
-
-//         // Use AJAX to post the object to our adduser service
-//         $.ajax({
-//             type: 'POST',
-//             data: newUser,
-//             url: '/users/adduser',
-//             dataType: 'JSON'
-//         }).done(function( response ) {
-
-//             // Check for successful (blank) response
-//             if (response.msg === '') {
-
-//                 // Clear the form inputs
-//                 $('#addUser fieldset input').val('');
-
-//                 // Update the table
-//                 populateTable();
-
-//             }
-//             else {
-
-//                 // If something goes wrong, alert the error message that our service returned
-//                 alert('Error: ' + response.msg);
-
-//             }
-//         });
-//     }
-//     else {
-//         // If errorCount is more than 0, error out
-//         alert('Please fill in all fields');
-//         return false;
-//     }
-// };

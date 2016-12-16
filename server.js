@@ -6,6 +6,13 @@ var tasks = require('./routes/tasks');
 var mongo = require('mongodb')
 var monk = require('monk');
 var db = monk(process.env.MONGODB_URI);
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(bodyParser.json());
 
 // set pug as template engine
 app.set('view engine', 'jade')

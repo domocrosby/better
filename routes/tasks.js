@@ -4,24 +4,29 @@ var app = express()
 // /* GET Userlist page. */
 app.get('/list', function(req, res) {
     var db = req.db;
-    var collection = db.get('docs');
+    var collection = db.get('tasks');
     collection.find({},{},function(e,docs){
         res.json(docs)
+        console.log(JSON.stringify(docs))
+        db.close()
     });
 });
 
 /*
  * POST to adduser.
  */
-// router.post('/adduser', function(req, res) {
-//     var db = req.db;
-//     var collection = db.get('userlist');
-//     collection.insert(req.body, function(err, result){
-//         res.send(
-//             (err === null) ? { msg: '' } : { msg: err }
-//         );
-//     });
-// });
+app.post('/add', function(req, res) {
+    var db = req.db;
+    var collection = db.get('tasks');
+    console.log('body' + req.body);
+    collection.insert(req.body, function(err, result){
+        res.send(
+            (err === null) ? { msg: '' } : { msg: err }
+        );
+        console.log(JSON.stringify(result))
+        db.close()
+    });
+});
 
 
 module.exports = app;

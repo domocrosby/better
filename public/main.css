@@ -2,3 +2,17 @@
   width: 100%;
   margin-top: 20px;
 }
+#srch-term {
+  border-bottom-left-radius: 0;
+}
+#answer {
+  display: none;
+}
+#options {
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-width: 2px;
+  padding: 10px 15px;
+  border: 1px solid #dce4ec;
+}
