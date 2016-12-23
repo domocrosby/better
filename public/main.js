@@ -1,4 +1,5 @@
 /*globals $:false */
+
 $("#submitBtn").on( "click", function(){
     submitSearch();
 });
@@ -12,15 +13,19 @@ $("#submitBtn").on( 'keypress',function(e){
 
 //On enter open answer box 
 $('#srch-term').on('keypress',function(e){
+    searchQ();
      var p = e.which;
      if(p==13){
          submitSearch();
      }
  });
 
+//action to take when wanting to submit a search
 function submitSearch(){
     $('#answer').show();
+    $('#options').hide();
     $('#answer').select();
+    
 }
 
 $("#answer").on( 'keypress',function(e){
@@ -29,6 +34,22 @@ $("#answer").on( 'keypress',function(e){
          submitAnswer();
      }
 });
+
+function searchQ(){
+    console.log('requesting data')
+     $.getJSON( '/tasks/list', function( data ) {
+        console.log('recieved data')
+        console.log(data)
+        var items = [];
+        $.each( data, function( key, val ) {
+            console.log(val)
+            $('#options').append( "<div class='option'>" + val.question + "</div>" );
+            console.log(items)
+        });
+        $('#options').show();
+    });
+        
+}
 
 function submitAnswer(){
     var newTask = {
@@ -49,6 +70,7 @@ function submitAnswer(){
                 $('#srch-term').val('');
                 $('#answer').val('');
                 $('#answer').hide();
+                $('#options').show();
                 $('#srch-term').select();
 
             }
@@ -68,18 +90,9 @@ function submitAnswer(){
 
 // DOM Ready =============================================================
 $(document).ready(function() {
-
      // jQuery AJAX call for JSON
-    $.getJSON( '/tasks/list', function( data ) {
-        console.log(data)
-        var items = [];
-        $.each( data, function( key, val ) {
-            console.log(val)
-            $('#options').append( "<div class='option'>" + val.question + "</div>" );
-            console.log(items)
-        });
-     
-    });
+//    $.getJSON( '/tasks/list?query='+$('#srch-term').val(), function( data ) {
+   
 
 });
 
