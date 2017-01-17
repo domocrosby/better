@@ -1,7 +1,7 @@
 p {
   margin: 0px;
 }
-.containerz {
+body {
   background: #6fcab9;
 }
 .logo {
@@ -24,14 +24,34 @@ p {
 #user {
   display: inline-block;
 }
-.new {
+#search {
+  margin: 15px;
+  background: #84d1c3;
+  float: right;
+  margin-top: 0px;
+}
+.glyphicon {
+  font-size: 15px;
+  margin-right: 5px;
+}
+.new,
+#search,
+.footer {
   font-variant: small-caps;
-  border: solid 1px #fff;
   font-size: 20px;
   padding: 10px;
   color: #fff;
   line-height: 15px;
   font-weight: lighter;
+}
+#new {
+  color: #84d1c3;
+  background: #fff;
+  padding: 10px;
+  line-height: 15px;
+}
+.new {
+  border: solid 1px #fff;
 }
 .user {
   font-variant: small-caps;
@@ -46,7 +66,8 @@ p {
   float: right;
   margin: 15px;
 }
-#new {
+#new,
+#search {
   margin-right: 0px;
 }
 .input-group {

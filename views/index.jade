@@ -6,11 +6,13 @@ block content
         #brand
           img(src='images/logo1.svg').logo
           p#title Card Wave
-        #user
+        
+        // #user
           p.user DC
         #new
-          p.new Add New
-        
+          <span class="glyphicon glyphicon-plus"></span>
+      #search
+        <span class="glyphicon glyphicon-search"></span>
       .content
         .input-group
             input.form-control#srch-term(type="text" placeholder="Search" name="srch-term")
@@ -22,4 +24,7 @@ block content
           #questions
           #add
             add a new question
+
+
+        
 
