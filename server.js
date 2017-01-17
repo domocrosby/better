@@ -18,16 +18,17 @@ app.use(express.static(__dirname + '/public'));
     
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
     
-MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
+MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/data', (err, database) => {
     if (err) return console.log(err)
     db = database
     console.log("Database connection ready");
-    // app.use(bodyParser.urlencoded({
-    //     extended: true
-    // }));
     
-    //db.collection('tasks').ensureIndex({ question: "text" });
+    db.collection('tasks').ensureIndex({ question: "text" });
    
     app.listen(port, function () {
       console.log('App listening on port '+port)

@@ -1,8 +1,17 @@
 extends layout
 
 block content
-    .container
-      .col-sm-12
+    .containerz
+      ul.nav
+        #brand
+          img(src='images/logo1.svg').logo
+          p#title Card Wave
+        #user
+          p.user DC
+        #new
+          p.new Add New
+        
+      .content
         .input-group
             input.form-control#srch-term(type="text" placeholder="Search" name="srch-term")
             .input-group-btn
@@ -10,5 +19,7 @@ block content
                   i.glyphicon.glyphicon-search
         textarea.form-control#answer(rows="5")
         #options
-          .option Hello
-          .option Hello2
+          #questions
+          #add
+            add a new question
+
