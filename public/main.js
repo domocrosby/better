@@ -1,5 +1,32 @@
 /*globals $:false */
 
+
+//on click open the search bar all the way
+$('#search').on( "click", function(){
+    $('#search').animate({
+        width : '100%',
+        paddingLeft: '17px',
+        fontSize: '25px'
+    }, 500, function() {
+    // Animation complete.
+  });
+    //$('#searchIcon').css("fontSize","25px")
+})
+
+function hideTitle(){
+    //removes the title if there isn't enough space for it
+    if($('.nav').width()<260){
+        $('#title').hide()
+    }else{
+        $('#title').show()
+    }
+}
+
+$( window ).resize(function() {
+    hideTitle();
+});
+
+
 $("#submitBtn").on( "click", function(){
     submitSearch();
 });
@@ -119,14 +146,11 @@ function removeQ(ID){
 $(document).ready(function() {
      // jQuery AJAX call for JSON
 //    $.getJSON( '/tasks/list?query='+$('#srch-term').val(), function( data ) {
-   
+   hideTitle();
 
 });
 
 
 
-// TODO : write the design in XD
-// TODO : make it so that a box appears aroud the selected tab - maybe with green at bottom
 
-// TODO : add in a plant
 // TODO : shade the chances that a question has already been answered?
