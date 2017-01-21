@@ -10,6 +10,30 @@ $('#search').on( "click", function(){
     }, 500, function() {
     // Animation complete.
   });
+    $('#searchCloseIcon').animate({
+        display : 'inline-block',
+        fontSize: '15px'
+    }, 500, function() {
+    // Animation complete.
+  });
+    //$('#searchIcon').css("fontSize","25px")
+})
+
+//on click close the search bar all the way
+$('#searchCloseIcon').on( "click", function(){
+    $('#search').animate({
+        width : '30px',
+        paddingLeft: '0px',
+        fontSize: '15px'
+    }, 500, function() {
+    // Animation complete.
+  });
+    $('#searchCloseIcon').animate({
+        display : 'none',
+        fontSize: '0px'
+    }, 500, function() {
+    // Animation complete.
+  });
     //$('#searchIcon').css("fontSize","25px")
 })
 

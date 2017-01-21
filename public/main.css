@@ -24,6 +24,12 @@ body {
 #user {
   display: inline-block;
 }
+#searchCloseIcon {
+  display: none;
+  font-size: 0px;
+  color: #fff;
+  float: right;
+}
 .addIcon {
   font-size: 15px;
 }
