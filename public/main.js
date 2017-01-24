@@ -1,40 +1,35 @@
 /*globals $:false */
 
-
+var searchOpenable = true;
 //on click open the search bar all the way
 $('#search').on( "click", function(){
-    $('#search').animate({
-        width : '100%',
-        paddingLeft: '17px',
-        fontSize: '25px'
-    }, 500, function() {
-    // Animation complete.
-  });
-    $('#searchCloseIcon').animate({
-        display : 'inline-block',
-        fontSize: '15px'
-    }, 500, function() {
-    // Animation complete.
-  });
-    //$('#searchIcon').css("fontSize","25px")
+    if(searchOpenable){
+        $('#search').animate({
+            paddingLeft: '17px',
+            left:'0px'
+        }, 500, function() {
+        searchOpenable = false;
+       
+      });
+    }  //$('#searchIcon').css("fontSize","25px")
 })
 
 //on click close the search bar all the way
 $('#searchCloseIcon').on( "click", function(){
     $('#search').animate({
-        width : '30px',
-        paddingLeft: '0px',
-        fontSize: '15px'
+        paddingLeft: '10px',
+        left : ($('.containerz').width())-45+'px'
     }, 500, function() {
-    // Animation complete.
+    searchOpenable = true;
   });
-    $('#searchCloseIcon').animate({
-        display : 'none',
-        fontSize: '0px'
+})
+
+$('#search').on( "mouseenter", function(){
+    $('#search').animate({
+        left : ($('.containerz').width())-145+'px'
     }, 500, function() {
-    // Animation complete.
+    searchOpenable = true;
   });
-    //$('#searchIcon').css("fontSize","25px")
 })
 
 function hideTitle(){
@@ -46,8 +41,15 @@ function hideTitle(){
     }
 }
 
+function offscreen(){
+    //makes the search bar offscreen
+    var posVar = ($('.containerz').width())-45+'px';  
+    $('#search').css('left',posVar);
+}
+    
 $( window ).resize(function() {
     hideTitle();
+    offscreen();
 });
 
 
@@ -171,10 +173,6 @@ $(document).ready(function() {
      // jQuery AJAX call for JSON
 //    $.getJSON( '/tasks/list?query='+$('#srch-term').val(), function( data ) {
    hideTitle();
+   offscreen();
 
 });
-
-
-
-
-// TODO : shade the chances that a question has already been answered?
