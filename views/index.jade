@@ -1,23 +1,18 @@
 extends layout
-
 block content
-    .containerz
-      ul.nav
-        #brand
-          img(src='images/logo1.svg').logo
-          p#title Card Wave
-        
-        // #user
-          p.user DC
+    #main
+      #brand
+        img(src='images/logo1.svg').logo
+        p#title Card Wave
+      #adBtn
+        .glyphicon-plus
       #search
-        <span class="glyphicon glyphicon-search" id='searchIcon'></span>
-        p.searchTitle Search
-        <span class="glyphicon glyphicon-chevron-right" id='searchCloseIcon'></span>
-      // #new
-      //   <span class="glyphicon glyphicon-plus addIcon"></span>
-      .content
-        
-
+          .glyphicon-search
+          p.searchTitle Search
+          .glyphicon-chevron-right
+    #adRail
+      a About
+      
 
         
 
