@@ -1,5 +1,6 @@
 #main {
   background: #6fcab9;
+  transition: margin-right 0.5s;
 }
 #search {
   background: #84d1c3;
@@ -10,6 +11,26 @@
 #adBtn {
   background: #fff;
   color: #84d1c3;
+  font-size: 25px;
+  line-height: 15px;
+  padding: 10px;
+  float: right;
+  margin-top: 15px;
+}
+#nav {
+  padding-bottom: 15px;
+}
+#adBtn {
+  display: inline-block;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 .nav {
   margin-bottom: 15px;
@@ -186,18 +207,4 @@ p {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-}
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left 0.5s;
-  padding: 20px;
-}
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
 }

@@ -48,7 +48,7 @@ function offscreen(){
 }
     
 $( window ).resize(function() {
-    hideTitle();
+    //hideTitle();
     offscreen();
 });
 
@@ -172,7 +172,7 @@ function removeQ(ID){
 $(document).ready(function() {
      // jQuery AJAX call for JSON
 //    $.getJSON( '/tasks/list?query='+$('#srch-term').val(), function( data ) {
-   hideTitle();
+   //hideTitle();
    offscreen();
 
 });
