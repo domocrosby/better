@@ -4,12 +4,13 @@
 
 speed = 0.5s
 mrg = 15px
+lineSize = 30px
+darkGreen = #6fcab9
+darkGrey = #1e1e1e
+lightGrey = #343434
 
 // Mixins
 //// Colors
-
-bkg-dark-green()
-   background:#6fcab9
 
 bkg-light-green()
    background:#84d1c3
@@ -19,6 +20,9 @@ bkg-white()
    
 fnt-light-green()
    color:#84d1c3
+   
+fnt-white()
+   color:#ffffff
    
 /// Sizes
 
@@ -35,21 +39,48 @@ topMargin()
 bottomPadding()
    padding-bottom: mrg
 
+// Styling
+
+// Text
+
+#title
+   font-variant: small-caps
+
+#title
+   fnt-white()
+
+// Color
+
+#adRail, #adBtn
+   bkg-white()
+
+#main
+   background: darkGrey
+
+// positioning
+
+#adBtn, #title
+   display: inline-block
+   
+// sizing
+
+#search
+   length:100%
+
+// Animation
+
+#main
+   transition: margin-right speed
+
 
 // Styling
 
-#main
-   bkg-dark-green()
-   transition: margin-right speed
+
    
 #search
    bkg-light-green()
    
-#adRail
-   bkg-white() 
-   
 #adBtn
-   bkg-white()
    fnt-light-green()
    fnt-size-icon()
    icon-padding()
@@ -58,17 +89,12 @@ bottomPadding()
    
 #nav
    bottomPadding()
-// Grouped Styling
-
-#adBtn
-   display: inline-block
-
-
-
-
-
-
-
+   
+#logo
+   width: lineSize
+   height: lineSize
+   margin: mrg mrg 0px mrg
+   
 
 
 
@@ -79,6 +105,8 @@ bottomPadding()
 }
    
 //OLD and ugly
+
+/*
 
 .nav
    margin-bottom:15px;
@@ -217,20 +245,8 @@ p
    overflow: hidden;
    position: relative;
    
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    right: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
 
-/* The navigation menu links */
+
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -240,12 +256,10 @@ p
     transition: 0.3s
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -253,3 +267,5 @@ p
     font-size: 36px;
     margin-left: 50px;
 }
+
+ */

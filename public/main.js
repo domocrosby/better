@@ -1,5 +1,24 @@
 /*globals $:false */
 
+///// FUNCTIONS
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function NavChange(RHRwidth) {
+    $("#adRail").width(RHRwidth);
+    $("#main").css("marginRight", RHRwidth);
+}
+
+
+///// Triggers
+
+$('#adBtn').on( "click", function(){
+    NavChange("250px");
+})
+
+///// OLD
+
+/*
+
 var searchOpenable = true;
 //on click open the search bar all the way
 $('#search').on( "click", function(){
@@ -177,18 +196,4 @@ $(document).ready(function() {
 
 });
 
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-function openNav() {
-    document.getElementById("adRail").style.width = "250px";
-    document.getElementById("main").style.marginRight = "250px";
-}
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("adRail").style.width = "0";
-    document.getElementById("main").style.marginRight = "0";
-}
-
-$('#adBtn').on( "click", function(){
-    openNav();
-})
+*/
