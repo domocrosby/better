@@ -1,41 +1,70 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
 #title {
   font-variant: small-caps;
 }
 #title {
   color: #fff;
 }
-#adRail,
-#adBtn {
+#title {
+  font-size: 14px;
+}
+#rail {
   background: #fff;
 }
-#main {
+#nav {
   background: #1e1e1e;
 }
-#adBtn,
-#title {
+#tab {
+  background: #343434;
+}
+body {
+  background: #f9f9f9;
+}
+#title,
+#main,
+#tab {
   display: inline-block;
+}
+#tab {
+  right: 0px;
+}
+#tab {
+  position: absolute;
+}
+#nav {
+  height: 52px;
+}
+#title {
+  line-height: 52px;
+}
+#logo {
+  width: 24px;
+}
+#logo {
+  height: 24px;
+}
+#main {
+  width: 100%;
+}
+#tab {
+  height: 100%;
+}
+#tab {
+  width: 50px;
+}
+#logo {
+  margin: 0px 15px 0px 15px;
+}
+#main {
+  margin-right: -tabWidth;
 }
 #main {
   transition: margin-right 0.5s;
-}
-#search {
-  background: #84d1c3;
-}
-#adBtn {
-  color: #84d1c3;
-  font-size: 25px;
-  line-height: 15px;
-  padding: 10px;
-  float: right;
-  margin-top: 15px;
-}
-#nav {
-  padding-bottom: 15px;
-}
-#logo {
-  width: 30px;
-  height: 30px;
-  margin: 15px 15px 0px 15px;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -46,166 +75,3 @@
     font-size: 18px;
   }
 }
-/*
-
-.nav
-   margin-bottom:15px;
-
-p
-   margin:0px;
-
-
-.logo
-   height: 30px;
-   width: 30px;
-   margin:15px  15px 0px 15px;
-   display: inline-block;
-   vertical-align: bottom;
-
-#title
-   font-variant:small-caps;
-   display:inline-block
-   color:white
-   font-size: 30px;
-   vertical-align: bottom;
-   line-height: 30px;
-
-#brand, #new, #user
-   display:inline-block;
-   
-#searchCloseIcon
-   display:inline-block;
-   font-size:25px;
-   color:white;
-   float:right;
-   
-.addIcon
-   font-size: 25px
-   
-.searchTitle
-   display: inline-block;
-   margin-left: 10px;
-
-.new, #search, .footer
-   font-variant:small-caps;
-   font-size: 20px;
-   padding 10px;
-   color:white;
-   line-height: 15px;
-   font-weight: lighter;
-   
-#search
-   background: #84d1c3;
-   float:right;
-   margin-top:0px;
-   font-size: 25px;
-   width:100%;
-   position:absolute;
-   right: 20px;
-   
-#new
-   color:#84d1c3;
-   background:white;
-   padding:10px;
-   line-height: 15px;
-   
-.new
-   border: solid 1px white;
-
-.user
-   font-variant:small-caps;
-   border: solid 1px white;
-   font-size: 20px;
-   padding 10px;
-   color:white;
-   line-height: 15px;
-
-#user, #new
-   float:right
-   margin:15px;
-
-#new, #search
-   margin-right:0px;
-
-.input-group
-   width: 100%;
-   
-#srch-term
-   border-bottom-left-radius: 0;
-   border:1px solid #ecf0f1;
-   padding:30px;
-   
-#answer
-   display: none;
-   
-#options
-   display: none;
-   border-radius: 4px;
-   border-top-right-radius: 0;
-   border-top-left-radius: 0;
-   border-width: 2px;
-   border: 1px solid #dce4ec;
-
-.answer
-   margin-left: 20px;
-
-.option
-   border-bottom: 1px solid #dce4ec
-   background: #FFF;
-   padding: 10px 15px 10px 15px;
-
-.selected
-   background:#f5f5f5
-
-.question:first-letter
-.answer:first-letter 
-    text-transform: uppercase;
-
-.last
-   border-bottom:0px;
-
-#add
-   background:red;
-
-.content
-   padding:30px;
-
-.blank
-   width:15px;
-
-.nav-tabs
-   margin-top:15px;
-
-.nav li a
-   padding:15px;
-   line-height:15px;
-   padding-bottom:30px
-   
-.containerz
-   overflow: hidden;
-   position: relative;
-   
-
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
- */
