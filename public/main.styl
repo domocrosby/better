@@ -1,7 +1,16 @@
 // THROWAWAY WORK
 
-html, body {margin: 0; height: 100%; overflow: hidden}
 
+   
+#div
+   background green
+   height 5000px
+   width 100%
+   
+// Needs Sorting
+#rail
+   border-left:1px solid #d5d4d4
+   
 // Variables
 
 speed = 0.5s
@@ -11,6 +20,7 @@ mrg = 15px
 logoSize = 24px
 navHeight = 52px
 tabWidth = 50px
+railWidth = 200px
 
 //colors
 navColor = #1e1e1e
@@ -21,6 +31,7 @@ bodyColor = #f9f9f9
 tabColor = #343434
 iconDisabled = #5c5c5c
 iconEnabled = #d6d6d6
+railColor = #f7f7f7
 
 // Mixins
 
@@ -40,17 +51,18 @@ iconEnabled = #d6d6d6
 
 // Color
 
-#rail
-   background:white
-
 #nav
    background: navColor
    
 #tab
    background: tabColor
    
-body
+body, #rail
    background: bodyColor
+   
+//borders
+
+
 
 // positioning
 
@@ -60,9 +72,14 @@ body
 #tab
    right: 0px
    
-#tab
+#rail
+   right: tabWidth
+   
+#tab, #main, #rail
    position: absolute
    
+html, body
+   overflow: hidden
    
    
 // sizing
@@ -82,27 +99,40 @@ body
 #main
    width: 100%
    
-#tab
+#rail, #main, #tab, html, body
    height: 100%
    
 #tab
    width: tabWidth
+   
+#rail
+   width: railWidth
 
 //padding
 
+#main
+   padding-right: 260px
+   
+#main
+   padding-left: 10px
+
+#main
+   padding-top: 10px
+   
 //margin
 
 #logo
    margin: 0px mrg 0px mrg
    
-#main
-   margin-right: -tabWidth
+
    
 // Animation
 
 #main
-   transition: margin-right speed
+   transition: padding-right speed
 
+#rail
+   transition: width speed
 
 // Styling
 

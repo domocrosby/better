@@ -4,15 +4,16 @@
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function NavChange(RHRwidth) {
-    $("#adRail").width(RHRwidth);
-    $("#main").css("marginRight", RHRwidth);
+    var pad = RHRwidth + $('#tab').width() + 10 
+    $("#rail").width(RHRwidth);
+    $("#main").css("paddingRight", pad );
 }
 
 
 ///// Triggers
 
 $('#adBtn').on( "click", function(){
-    NavChange("250px");
+    NavChange(250);
 })
 
 ///// OLD

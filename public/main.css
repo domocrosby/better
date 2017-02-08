@@ -1,8 +1,10 @@
-html,
-body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
+#div {
+  background: #008000;
+  height: 5000px;
+  width: 100%;
+}
+#rail {
+  border-left: 1px solid #d5d4d4;
 }
 #title {
   font-variant: small-caps;
@@ -13,16 +15,14 @@ body {
 #title {
   font-size: 14px;
 }
-#rail {
-  background: #fff;
-}
 #nav {
   background: #1e1e1e;
 }
 #tab {
   background: #343434;
 }
-body {
+body,
+#rail {
   background: #f9f9f9;
 }
 #title,
@@ -33,8 +33,17 @@ body {
 #tab {
   right: 0px;
 }
-#tab {
+#rail {
+  right: 50px;
+}
+#tab,
+#main,
+#rail {
   position: absolute;
+}
+html,
+body {
+  overflow: hidden;
 }
 #nav {
   height: 52px;
@@ -51,20 +60,36 @@ body {
 #main {
   width: 100%;
 }
-#tab {
+#rail,
+#main,
+#tab,
+html,
+body {
   height: 100%;
 }
 #tab {
   width: 50px;
 }
+#rail {
+  width: 200px;
+}
+#main {
+  padding-right: 260px;
+}
+#main {
+  padding-left: 10px;
+}
+#main {
+  padding-top: 10px;
+}
 #logo {
   margin: 0px 15px 0px 15px;
 }
 #main {
-  margin-right: -tabWidth;
+  transition: padding-right 0.5s;
 }
-#main {
-  transition: margin-right 0.5s;
+#rail {
+  transition: width 0.5s;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
