@@ -1,15 +1,11 @@
 // THROWAWAY WORK
 
-
+// TODO : need to shift logo up 3px, color Rail as #262626
    
 #div
    background green
    height 5000px
    width 100%
-   
-// Needs Sorting
-#rail
-   border-left:1px solid #d5d4d4
    
 // Variables
 
@@ -31,7 +27,9 @@ bodyColor = #f9f9f9
 tabColor = #343434
 iconDisabled = #5c5c5c
 iconEnabled = #d6d6d6
-railColor = #f7f7f7
+railColor = #262626
+iconColor = #5d5d5d
+iconSelectColor = #d6d6d6
 
 // Mixins
 
@@ -48,6 +46,18 @@ railColor = #f7f7f7
 
 #title
    font-size:14px
+   
+.icon
+   color: iconColor
+   
+.selected.icon, .icon:hover
+   color: iconSelectColor
+   
+.icon
+   text-align: center
+   
+.icon span
+   font-size: large;
 
 // Color
 
@@ -57,9 +67,11 @@ railColor = #f7f7f7
 #tab
    background: tabColor
    
-body, #rail
+body
    background: bodyColor
    
+#rail
+   background: railColor
 //borders
 
 
@@ -69,6 +81,9 @@ body, #rail
 #title, #main, #tab
    display: inline-block
    
+.icon
+   display: block
+
 #tab
    right: 0px
    
@@ -81,6 +96,8 @@ body, #rail
 html, body
    overflow: hidden
    
+
+
    
 // sizing
 
@@ -102,11 +119,15 @@ html, body
 #rail, #main, #tab, html, body
    height: 100%
    
-#tab
+#tab, .icon
    width: tabWidth
+   
+.icon
+   height: tabWidth
    
 #rail
    width: railWidth
+   
 
 //padding
 
@@ -124,7 +145,8 @@ html, body
 #logo
    margin: 0px mrg 0px mrg
    
-
+.icon
+   padding: mrg
    
 // Animation
 
@@ -133,6 +155,9 @@ html, body
 
 #rail
    transition: width speed
+   
+.icon:hover
+   cursor: pointer
 
 // Styling
 

@@ -12,8 +12,16 @@ function NavChange(RHRwidth) {
 
 ///// Triggers
 
-$('#adBtn').on( "click", function(){
-    NavChange(250);
+$('.icon').on( "click", function(){
+    if($(this).hasClass('selected')){
+        $(this).removeClass('selected')
+        NavChange(0);
+    }else{
+        $('.icon').removeClass('selected')
+        $(this).addClass('selected')
+        NavChange(250);
+    }
+    
 })
 
 ///// OLD

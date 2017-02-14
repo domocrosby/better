@@ -3,9 +3,6 @@
   height: 5000px;
   width: 100%;
 }
-#rail {
-  border-left: 1px solid #d5d4d4;
-}
 #title {
   font-variant: small-caps;
 }
@@ -15,20 +12,38 @@
 #title {
   font-size: 14px;
 }
+.icon {
+  color: #5d5d5d;
+}
+.selected.icon,
+.icon:hover {
+  color: #d6d6d6;
+}
+.icon {
+  text-align: center;
+}
+.icon span {
+  font-size: large;
+}
 #nav {
   background: #1e1e1e;
 }
 #tab {
   background: #343434;
 }
-body,
-#rail {
+body {
   background: #f9f9f9;
+}
+#rail {
+  background: #262626;
 }
 #title,
 #main,
 #tab {
   display: inline-block;
+}
+.icon {
+  display: block;
 }
 #tab {
   right: 0px;
@@ -67,8 +82,12 @@ html,
 body {
   height: 100%;
 }
-#tab {
+#tab,
+.icon {
   width: 50px;
+}
+.icon {
+  height: 50px;
 }
 #rail {
   width: 200px;
@@ -85,11 +104,17 @@ body {
 #logo {
   margin: 0px 15px 0px 15px;
 }
+.icon {
+  padding: 15px;
+}
 #main {
   transition: padding-right 0.5s;
 }
 #rail {
   transition: width 0.5s;
+}
+.icon:hover {
+  cursor: pointer;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
