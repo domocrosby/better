@@ -21,7 +21,6 @@ $('.icon').on( "click", function(){
         $(this).addClass('selected')
         NavChange(250);
     }
-    
 })
 
 ///// OLD

@@ -90,10 +90,10 @@ body {
   height: 50px;
 }
 #rail {
-  width: 200px;
+  width: 0px;
 }
 #main {
-  padding-right: 260px;
+  padding-right: 60px;
 }
 #main {
   padding-left: 10px;
