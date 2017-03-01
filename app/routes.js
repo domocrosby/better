@@ -4,7 +4,10 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index'); // load the index.ejs file
+        console.log(req.user)
+        res.render('index',{
+            user : req.user // get the user out of session and pass to template
+        }); // load the index.ejs file
     });
 
     // =====================================
@@ -20,7 +23,7 @@ module.exports = function(app, passport) {
     // app.post('/login', do all our passport stuff here);
     // process the login form
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect : '/profile', // redirect to the secure profile section
+		successRedirect : '/', // redirect to the secure profile section
 		failureRedirect : '/login', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
@@ -40,7 +43,7 @@ module.exports = function(app, passport) {
 
     // process the signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile', // redirect to the secure profile section
+		successRedirect : '/', // redirect to the secure profile section
 		failureRedirect : '/signup', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
@@ -54,6 +57,19 @@ module.exports = function(app, passport) {
             user : req.user // get the user out of session and pass to template
         });
     });
+    
+    // =====================================
+    // FACEBOOK ROUTES =====================
+    // =====================================
+    // route for facebook authentication and login
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    // handle the callback after facebook has authenticated the user
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect : '/',
+            failureRedirect : '/'
+        }));
 
     // =====================================
     // LOGOUT ==============================
