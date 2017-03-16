@@ -7,9 +7,14 @@
    height 5000px
    width 100%
    
-.image
-   border-radius 50px
-   height 30px
+#rail
+   border: #d5d4d4
+   border-left-style: solid
+   border-left-width: 1px
+   
+.form-control::first-letter 
+   text-transform:capitalize
+
 
 // Variables
 
@@ -18,8 +23,8 @@ speed = 0.5s
 // Sizing
 mrg = 15px
 logoSize = 24px
-navHeight = 52px
 tabWidth = 50px
+navHeight = tabWidth
 railWidth = 250px
 
 //colors
@@ -31,9 +36,10 @@ bodyColor = #f9f9f9
 tabColor = #343434
 iconDisabled = #5c5c5c
 iconEnabled = #d6d6d6
-railColor = #262626
+railColor = #f7f7f7
 iconColor = #5d5d5d
 iconSelectColor = #d6d6d6
+blackFont = #787878
 
 // Mixins
 
@@ -62,6 +68,15 @@ iconSelectColor = #d6d6d6
    
 .icon span
    font-size: large;
+   
+#rail label   
+   white-space: nowrap;
+   
+#rail label
+   color: blackFont 
+
+#rail label
+   font-weight: 100
 
 // Color
 
@@ -82,7 +97,7 @@ body
 
 // positioning
 
-#title, #main, #tab
+#title, #main, #tab, #brand, #login
    display: inline-block
    
 .icon
@@ -100,7 +115,8 @@ body
 html, body
    overflow: hidden
    
-
+#login
+   float right
 
    
 // sizing
@@ -123,10 +139,10 @@ html, body
 #rail, #main, #tab, html, body
    height: 100%
    
-#tab, .icon
+#tab, .icon, #login img
    width: tabWidth
    
-.icon
+.icon, #login img
    height: tabWidth
    
 #rail
@@ -144,14 +160,18 @@ html, body
 #main
    padding-top: 10px
    
+.icon
+   padding: mrg
+   
+   
 //margin
 
 #logo
    margin: 0px mrg 0px mrg
    
-.icon
-   padding: mrg
-   
+#addRail
+   margin: mrg
+
 // Animation
 
 #main
@@ -167,7 +187,9 @@ html, body
 
 
 
-
+//z-index
+#tab
+   z-index : 1
 
 
 

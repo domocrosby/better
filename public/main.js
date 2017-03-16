@@ -9,10 +9,21 @@ function NavChange(RHRwidth) {
     $("#main").css("paddingRight", pad );
 }
 
+function addQuestion(question,answer){
+    $.post('./api/question/add', {
+      // ...
+      data: { 
+          question: question
+      },
+      // ...
+    });
+}
+
 
 ///// Triggers
 
-$('.icon').on( "click", function(){
+// on click of nav icons opens tab bar
+$('#tab .icon').on( "click", function(){
     if($(this).hasClass('selected')){
         $(this).removeClass('selected')
         NavChange(0);
@@ -20,6 +31,19 @@ $('.icon').on( "click", function(){
         $('.icon').removeClass('selected')
         $(this).addClass('selected')
         NavChange(250);
+    }
+})
+
+// on submit of question adds question to DB
+$('#submit').on( "click", function(){
+    var que = $('#question').val()
+    var ans = $('#answer').val()
+    if(que&&ans){
+        console.log(true)
+        addQuestion(que,ans)
+    }
+    else{
+        console.log(false)
     }
 })
 

@@ -4,23 +4,33 @@ block content
         #brand
           img(src='images/logo1.svg')#logo
           p#title Card Wave
+        #login
+          if user
+            img.image(src=user.facebook.picture, href="/logout")
+          else
+            a.icon(href="/auth/facebook")
+              span.glyphicon.glyphicon-user
+      
       #main
         #div
-          a.btn.btn-primary(href="/auth/facebook")
-            span.fa.fa-facebook Facebook #{user}
-          if user
-            img.image(src=user.facebook.picture)
-          else
-            p No Username!
-          
+
       #tab
         .icon#addBtn
           span.glyphicon.glyphicon-plus
         .icon#searchBtn
           span.glyphicon.glyphicon-search
       #rail
-     
-      
+        form#addRail
+          .form-group
+            label(for="Question") Question
+            textArea.form-control#question
+          .form-group
+            label(for="Answer") Answer
+            textArea.form-control#answer
+          if user
+            button.btn.btn-primary#submit(type="button") Submit
+          else
+            button.btn.btn-primary.disabled#submit(type="button") Submit
 
         
 

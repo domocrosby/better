@@ -3,9 +3,13 @@
   height: 5000px;
   width: 100%;
 }
-.image {
-  border-radius: 50px;
-  height: 30px;
+#rail {
+  border: #d5d4d4;
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+.form-control::first-letter {
+  text-transform: capitalize;
 }
 #title {
   font-variant: small-caps;
@@ -29,6 +33,15 @@
 .icon span {
   font-size: large;
 }
+#rail label {
+  white-space: nowrap;
+}
+#rail label {
+  color: #787878;
+}
+#rail label {
+  font-weight: 100;
+}
 #nav {
   background: #1e1e1e;
 }
@@ -39,11 +52,13 @@ body {
   background: #f9f9f9;
 }
 #rail {
-  background: #262626;
+  background: #f7f7f7;
 }
 #title,
 #main,
-#tab {
+#tab,
+#brand,
+#login {
   display: inline-block;
 }
 .icon {
@@ -64,11 +79,14 @@ html,
 body {
   overflow: hidden;
 }
+#login {
+  float: right;
+}
 #nav {
-  height: 52px;
+  height: 50px;
 }
 #title {
-  line-height: 52px;
+  line-height: 50px;
 }
 #logo {
   width: 24px;
@@ -87,10 +105,12 @@ body {
   height: 100%;
 }
 #tab,
-.icon {
+.icon,
+#login img {
   width: 50px;
 }
-.icon {
+.icon,
+#login img {
   height: 50px;
 }
 #rail {
@@ -105,11 +125,14 @@ body {
 #main {
   padding-top: 10px;
 }
+.icon {
+  padding: 15px;
+}
 #logo {
   margin: 0px 15px 0px 15px;
 }
-.icon {
-  padding: 15px;
+#addRail {
+  margin: 15px;
 }
 #main {
   transition: padding-right 0.5s;
@@ -119,6 +142,9 @@ body {
 }
 .icon:hover {
   cursor: pointer;
+}
+#tab {
+  z-index: 1;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

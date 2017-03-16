@@ -1,4 +1,6 @@
 module.exports = function(app, passport) {
+    
+    var Question      		= require('../app/models/question');
 
     // =====================================
     // HOME PAGE (with login links) ========
@@ -69,7 +71,8 @@ module.exports = function(app, passport) {
         passport.authenticate('facebook', {
             successRedirect : '/',
             failureRedirect : '/'
-        }));
+        })
+    );
 
     // =====================================
     // LOGOUT ==============================
@@ -78,6 +81,33 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+    
+    // =====================================
+    // API ==============================
+    // =====================================
+    
+    /// TODO : move this to a new controller
+    app.post('/api/question/add', isLoggedIn, function(req, res) {
+        console.log('requesting data')
+        console.log(req.data)
+        // if there is no user found with that facebook id, create them
+                    var newQuestion            = new Question();
+        
+                    // set all of the facebook information in our user model
+                    newQuestion.question    = 'hello' // set the users facebook id                   
+                    newQuestion.answer = 'darkness' // we will save the token that facebook provides to the user                    
+                    newQuestion.postedBy = req.user._id
+                    // save our user to the database
+                    newQuestion.save(function(err) {
+                        if (err)
+                            throw err;
+                        console.log('question added')
+                        // if successful, return the new user
+                        return  newQuestion;
+                    });
+        //res.redirect('/');
+    });
+    
     
 };
 
