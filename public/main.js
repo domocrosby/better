@@ -1,5 +1,6 @@
 /*globals $:false */
 
+
 ///// FUNCTIONS
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
@@ -13,7 +14,8 @@ function addQuestion(question,answer){
     $.post('./api/question/add', {
       // ...
       data: { 
-          question: question
+          question: question,
+          answer: answer
       },
       // ...
     });
@@ -24,6 +26,10 @@ function addQuestion(question,answer){
 
 // on click of nav icons opens tab bar
 $('#tab .icon').on( "click", function(){
+    var railBtn = "#" + $(this).attr("id").slice(0,-3) + "Rail";
+    console.log(railBtn)
+    $("#rail form").hide()
+    $(railBtn).show()
     if($(this).hasClass('selected')){
         $(this).removeClass('selected')
         NavChange(0);
@@ -33,6 +39,9 @@ $('#tab .icon').on( "click", function(){
         NavChange(250);
     }
 })
+
+
+
 
 // on submit of question adds question to DB
 $('#submit').on( "click", function(){

@@ -31,6 +31,10 @@ block content
             button.btn.btn-primary#submit(type="button") Submit
           else
             button.btn.btn-primary.disabled#submit(type="button") Submit
-
+        form#searchRail
+          each item in questions
+            .listed
+              p.question= item.question
+              p.answer= item.answer
         
 

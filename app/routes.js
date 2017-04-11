@@ -1,15 +1,29 @@
 module.exports = function(app, passport) {
     
-    var Question      		= require('../app/models/question');
-
+    //todo : move question function of q out of here into it's own function 
+    
+    var Question      		= require('./models/question');
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
         console.log(req.user)
-        res.render('index',{
-            user : req.user // get the user out of session and pass to template
-        }); // load the index.ejs file
+        if(req.user){
+            Question.find({ 'postedBy': req.user._id }, function (err, question) {
+                if (err) return err;
+                console.log(question) 
+                res.render('index',{
+                    user : req.user, // get the user out of session and pass to template
+                    questions : question
+                }); // load the index.ejs file
+                
+            })
+        }else{
+            res.render('index',{
+                    user : req.user, // get the user out of session and pass to template
+                    questions : 'blank' 
+                }); // load the index.ejs file
+        }
     });
 
     // =====================================
@@ -82,36 +96,12 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
     
-    // =====================================
-    // API ==============================
-    // =====================================
     
-    /// TODO : move this to a new controller
-    app.post('/api/question/add', isLoggedIn, function(req, res) {
-        console.log('requesting data')
-        console.log(req.data)
-        // if there is no user found with that facebook id, create them
-                    var newQuestion            = new Question();
-        
-                    // set all of the facebook information in our user model
-                    newQuestion.question    = 'hello' // set the users facebook id                   
-                    newQuestion.answer = 'darkness' // we will save the token that facebook provides to the user                    
-                    newQuestion.postedBy = req.user._id
-                    // save our user to the database
-                    newQuestion.save(function(err) {
-                        if (err)
-                            throw err;
-                        console.log('question added')
-                        // if successful, return the new user
-                        return  newQuestion;
-                    });
-        //res.redirect('/');
-    });
     
     
 };
 
-// route middleware to make sure a user is logged in
+// route middleware to make sure a user is logged in, maybe move this out to be referenced elsewhere
 function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on 
