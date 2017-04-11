@@ -1,8 +1,8 @@
 module.exports = {
 
     'facebookAuth' : {
-        clientID: '669090123216173' ,
-        clientSecret: '3547aebe2d75fb865198205c35a6f795',
+        clientID: process.env.FBID || '711888558936329' ,
+        clientSecret: process.env.FBsecret || '0e3a1c34892d3085a7b9de1ac2521c8d',
         callbackURL: process.env.FB ||'https://better-dominisi.c9users.io/auth/facebook/callback'
     }
 
